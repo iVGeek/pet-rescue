@@ -23,23 +23,23 @@ const createPet = function (name, species) {
   return pet;
 };
 
-const sora = createPet("Sora", "ferret");
-const clover = createPet("Clover", "rabbit");
-const baxter = createPet("Baxter", "Hamster");
-const cleo = createPet("Cleo", "rat");
-const francine = createPet("Francine", "turtle");
+const coco = createPet("Coco", "ferret");
+const milo = createPet("Milo", "rabbit");
+const ruby = createPet("Ruby", "Hamster");
+const whoosh = createPet("Whoosh", "rat");
+const bailey = createPet("Bailey", "turtle");
 
-// console.log(sora, clover, baxter, cleo, francine);
+// console.log(coco, milo, ruby, whoosh, bailey);
 
-// clover.sleep();
-// baxter.play();
+// milo.sleep();
+// whoosh.play();
 
-// console.log(clover, baxter);
+// console.log(milo, whoosh);
 
 clover.isTired = 8;
 francine.isTired = 9;
 
-const allPets = [sora, clover, baxter, cleo, francine];
+const allPets = [coco, milo, ruby, whoosh, bailey];
 // console.log(allPets);
 
 const showPets = function (petArray) {
