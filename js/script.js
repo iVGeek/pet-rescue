@@ -36,8 +36,8 @@ const bailey = createPet("Bailey", "turtle");
 
 // console.log(milo, whoosh);
 
-clover.isTired = 8;
-francine.isTired = 9;
+coco.isTired = 8;
+ruby.isTired = 9;
 
 const allPets = [coco, milo, ruby, whoosh, bailey];
 // console.log(allPets);
