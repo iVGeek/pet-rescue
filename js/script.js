@@ -1,20 +1,16 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const statusButton = document.getElementById("statusButton");
-  const petsContainer = document.querySelector(".all-pets");
+const statusButton = document.querySelector("button");
+const pets = document.querySelector(".all-pets");
 
-  class Pet {
-    constructor(name, species) {
-      this.name = name;
-      this.species = species;
-      this.isTired = 5;
-    }
-
-    sleep() {
+const createPet = function (name, species) {
+  const pet = {
+    name: name,
+    species: species,
+    isTired: 5,
+    sleep: function () {
       console.log(`${this.name} needs a nap. Zzz...`);
       this.isTired = 1;
-    }
-
-    play() {
+    },
+    play: function () {
       if (this.isTired === 10) {
         console.log(`Too tired to play.`);
         this.sleep();
@@ -23,31 +19,43 @@ document.addEventListener("DOMContentLoaded", function () {
         this.isTired += 1;
       }
     }
-  }
-
-  const coco = new Pet("Coco", "ferret");
-  const milo = new Pet("Milo", "rabbit");
-  const ruby = new Pet("Ruby", "hamster");
-  const whoosh = new Pet("Whoosh", "rat");
-  const bailey = new Pet("Bailey", "turtle");
-
-  const allPets = [coco, milo, ruby, whoosh, bailey];
-
-  const showPets = function (petArray) {
-    petsContainer.innerHTML = "";
-
-    for (let pet of petArray) {
-      let status = "ready to play!";
-      if (pet.isTired >= 7) {
-        status = "sleeping.";
-      }
-      const li = document.createElement("li");
-      li.innerHTML = `<span class="pet-name">${pet.name}</span> the ${pet.species} is ${status}`;
-      petsContainer.append(li);
-    }
   };
+  return pet;
+};
 
-  statusButton.addEventListener("click", function () {
-    showPets(allPets);
-  });
+const sora = createPet("Sora", "ferret");
+const clover = createPet("Clover", "rabbit");
+const baxter = createPet("Baxter", "Hamster");
+const cleo = createPet("Cleo", "rat");
+const francine = createPet("Francine", "turtle");
+
+// console.log(sora, clover, baxter, cleo, francine);
+
+// clover.sleep();
+// baxter.play();
+
+// console.log(clover, baxter);
+
+clover.isTired = 8;
+francine.isTired = 9;
+
+const allPets = [sora, clover, baxter, cleo, francine];
+// console.log(allPets);
+
+const showPets = function (petArray) {
+  pets.innerHTML = "";
+
+  for (let pet of petArray) {
+    let status = "ready to play!";
+    if (pet.isTired >= 7) {
+      status = "sleeping.";
+    }
+    const li = document.createElement("li");
+    li.innerHTML = `<span class="pet-name">${pet.name}</span> the ${pet.species} is ${status}`;
+    pets.append(li);
+  }
+};
+
+statusButton.addEventListener("click", function () {
+  showPets(allPets);
 });
